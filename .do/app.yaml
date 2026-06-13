@@ -3,31 +3,28 @@ alerts:
   - rule: DEPLOYMENT_FAILED
   - rule: DOMAIN_FAILED
 domains:
-  - domain: mmm.city
+  - domain: gammon.im
     type: PRIMARY
-    zone: mmm.city
-  - domain: mmmm.city
-    type: ALIAS
-    zone: mmmm.city
+    zone: gammon.im
 features:
   - buildpack-stack=ubuntu-22
 ingress:
   rules:
     - component:
-        name: mmmm-site
+        name: gammon-site
       match:
         path:
           prefix: /
-name: mmmm-site
+name: gammon-site
 region: ams
 services:
   - dockerfile_path: Dockerfile
     github:
       branch: main
       deploy_on_push: true
-      repo: igrmk/mmmm-site
+      repo: igrmk/gammon-site
     http_port: 8080
     instance_count: 1
     instance_size_slug: apps-s-1vcpu-0.5gb
-    name: mmmm-site
+    name: gammon-site
     source_dir: /

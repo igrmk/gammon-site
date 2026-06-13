@@ -4,15 +4,17 @@ COPY frontend/ .
 RUN npm install
 RUN npm run build
 
-FROM mambaorg/micromamba:1.5.8
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 WORKDIR /app/frontend/dist
-COPY --chown=$MAMBA_USER:$MAMBA_USER --from=frontend-builder /app/frontend/dist/ .
+COPY --from=frontend-builder /app/frontend/dist/ .
 
 WORKDIR /app/backend
-COPY --chown=$MAMBA_USER:$MAMBA_USER backend/ .
-RUN micromamba install -q -y -n base -f environment.yml && micromamba clean -q --all --yes
+COPY backend/pyproject.toml backend/uv.lock backend/.python-version ./
+RUN uv sync --frozen --no-dev
 
-ARG MAMBA_DOCKERFILE_ACTIVATE=1
+COPY backend/main.py .
+
 ENV PYTHONUNBUFFERED=1
+ENV PATH="/app/backend/.venv/bin:$PATH"
 EXPOSE 8080
-ENTRYPOINT ["/usr/local/bin/_entrypoint.sh", "python", "./main.py"]
+ENTRYPOINT ["python", "main.py"]

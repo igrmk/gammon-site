@@ -8,25 +8,25 @@ Although Organic Maps supports fewer colors and icons,
 the tool does its best to match the original as closely as possible.
 Input on new icon mappings is appreciated.
 
-Basically this tool is just a web wrapper around [mmmm](https://github.com/igrmk/mmmm) library.
+Basically this tool is just a web wrapper around the [gammon](https://github.com/igrmk/gammon) converter
+(`gammon-im` on PyPI).
 
 Usage
 -----
 
-Go to [Mmmm](https://mmm.city) and convert your KML.
+Go to [Gammon](https://gammon.im) and convert your KML.
 
 Development
 -----------
 
 ### Back End
 
-You can create a virtual environment for testing by executing the commands below:
+You can set up the backend environment with [uv](https://docs.astral.sh/uv/):
 
     cd backend
-    micromamba env create --prefix ./.venv --file environment.yml
-    micromamba activate ./.venv
+    uv sync
 
-Run `flake8` in the directory to lint the code.
+Run `uv run ruff check` to lint the code.
 
 ### Front End
 

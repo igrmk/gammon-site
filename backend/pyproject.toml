@@ -1,0 +1,19 @@
+[project]
+name = "gammon-site-backend"
+version = "0"
+requires-python = ">=3.12"
+dependencies = [
+    "flask",
+    "waitress",
+    "gammon-im>=2.0.0",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+preview = true
+select = ["E", "W", "F"]
+
+[dependency-groups]
+dev = ["ruff"]

@@ -3,4 +3,3 @@ frontend/.node_version
 frontend/dist
 backend/.venv
 backend/__pycache__
-backend/setup.cfg

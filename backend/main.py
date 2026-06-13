@@ -1,6 +1,6 @@
 from flask import Flask, send_from_directory, send_file, request
 from waitress import serve
-import mmmm as M
+import gammon as M
 import io
 
 app = Flask(__name__, static_folder='../frontend/dist')

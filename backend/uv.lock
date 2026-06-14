@@ -51,14 +51,14 @@ wheels = [
 
 [[package]]
 name = "gammon-im"
-version = "2.0.1"
+version = "2.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lxml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/28/b3/ae8e7fc8a60a7a0f55fe7b8cc6c914fccbad9204e9cef4ddb5f1f11a8968/gammon_im-2.0.1.tar.gz", hash = "sha256:2a7020c97b30ac3455974ea47b4edd747b2447cbdf24391ba5e1d85a481a9d29", size = 25409, upload-time = "2026-06-13T23:04:22.108Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/64/fd/409320a0168dbc2cd09c4dbe558c6a5575e66d2cfdbe3acb8f2608473e5d/gammon_im-2.1.0.tar.gz", hash = "sha256:facb477f9bf8d5b510e94fd424d15630e3fe672dba0f96c2d902df660a27d659", size = 25722, upload-time = "2026-06-14T15:10:32.703Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d3/a7/41c4589474669facda19c0333e53549dd804966dc4ae1c080b060da902e1/gammon_im-2.0.1-py3-none-any.whl", hash = "sha256:d9b358a9e91d33d227ef36678db1f496bf9156fba24db99e48329f4440881a45", size = 5586, upload-time = "2026-06-13T23:04:22.8Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/c9/09525746896da2483f8ade3999044e81c82ae4f42a5709fccfbde21bdcff/gammon_im-2.1.0-py3-none-any.whl", hash = "sha256:dcabbd21b3689d9e47a2b6307da5834daf6af6afd7c9b9bf466881bcdb7657af", size = 5875, upload-time = "2026-06-14T15:10:33.518Z" },
 ]
 
 [[package]]

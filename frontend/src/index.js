@@ -29,7 +29,7 @@ const dropzone = new Dropzone('.dropzone', {
             if (stringMessage.endsWith('.')) {
                 stringMessage = stringMessage.slice(0, -1)
             }
-            errorMessageContainer.textContent = message
+            errorMessageContainer.textContent = stringMessage
             const errorBlock = document.getElementById('error-block')
             errorBlock.style.display = 'block'
         })

@@ -5,29 +5,27 @@ import { dom, library } from '@fortawesome/fontawesome-svg-core'
 import { faCircleDown } from '@fortawesome/free-regular-svg-icons'
 import saveAs from 'file-saver'
 
-function removeFileExtension(filename, extension) {
-    const regex = new RegExp(`\\.${extension}$`, 'i')
-    return filename.replace(regex, '')
+function removeMapExtension(filename) {
+    return filename.replace(/\.km[lz]$/i, '')
 }
 
 const dropzone = new Dropzone('.dropzone', {
     url: '/',
     maxFiles: 1,
-    acceptedFiles: 'application/vnd.google-earth.kml+xml, .kml',
+    acceptedFiles: 'application/vnd.google-earth.kml+xml, application/vnd.google-earth.kmz, .kml, .kmz',
     init: function () {
         this.on('success', (file, response) => {
             this.removeAllFiles()
             const blob = new Blob([response], { type: 'application/vnd.google-earth.kml+xml' })
-            saveAs(blob, `${removeFileExtension(file.name, 'kml')}.converted.kml`)
+            saveAs(blob, `${removeMapExtension(file.name)}.converted.kml`)
             const errorBlock = document.getElementById('error-block')
             errorBlock.style.display = 'none'
         })
         this.on('error', (file, message) => {
             this.removeAllFiles()
             const errorMessageContainer = document.getElementById('error-message')
-            let stringMessage = typeof message === 'string'
-                ? message
-                : message.error || 'An error occurred during the upload'
+            let stringMessage =
+                typeof message === 'string' ? message : message.error || 'An error occurred during the upload'
             if (stringMessage.endsWith('.')) {
                 stringMessage = stringMessage.slice(0, -1)
             }
